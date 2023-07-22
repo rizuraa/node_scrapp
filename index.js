@@ -15,7 +15,7 @@ app.use((req, res, next) => {
 });
 
 // api untuk mengambil gambar prakiraan angin
-app.get("/api/gambar", (req, res) => {
+app.use("/api/gambar", (req, res) => {
   axios
     .get("https://bmkg.go.id/", {
       headers: {
@@ -76,7 +76,7 @@ async function scrapeImage(url) {
 }
 
 //api get peta hujan
-app.get("/api/hujan", (req, res) => {
+app.use("/api/hujan", (req, res) => {
   axios
     .get("https://peta-maritim.bmkg.go.id/prakiraan/tinggi_gelombang") // Ganti URL dengan URL yang sesuai
     .then((response) => {
